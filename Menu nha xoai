@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Nhà Xoài</title>
+
+    <!-- Tailwind CSS CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Montserrat for a modern font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* Thiết lập font Inter và các kiểu dáng cơ bản */
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background-color: #f7fafc; /* Màu nền nhẹ nhàng */
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            min-height: 100vh;
+
+            padding: 1rem; /* Padding tổng thể cho nội dung */
+
+        }
+
+        /* Áp dụng font Montserrat cho tiêu đề Menu Nhà Xoài */
+
+        .cafe-nha-xoai-title {
+
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+        /* Ẩn các mũi tên tăng/giảm mặc định của input type="number" */
+
+        input[type='number']::-webkit-inner-spin-button,
+
+        input[type='number']::-webkit-outer-spin-button {
+
+            -webkit-appearance: none;
+
+            margin: 0;
+
+        }
+
+        input[type='number'] {
+
+            -moz-appearance: textfield;
+
+        }
+
+        /* Modal styles */
+
+        .modal-overlay {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.7);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 1000;
+
+        }
+
+        .modal-content {
+
+            background-color: white;
+
+            padding: 2rem;
+
+            border-radius: 1.5rem; /* rounded-3xl */
+
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+            max-width: 90%;
+
+            width: 400px;
+
+            position: relative;
+
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-gradient-to-br from-yellow-100 to-orange-200">
+
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-xl overflow-hidden my-8">
+
+        <!-- Phần tiêu đề Menu Nhà Xoài -->
+
+        <div class="relative bg-yellow-500 p-6 flex flex-col items-center justify-center text-white text-center rounded-t-3xl">
+
+            <h1 class="text-4xl font-extrabold mb-2 leading-tight cafe-nha-xoai-title">
+
+                MENU NHÀ 🥭 XOÀI 🥭
+
+            </h1>
+
+            <p class="text-lg font-semibold italic">Nơi hương vị gặp gỡ sự thư thái</p>
+
+        </div>
+
+
+
+        <!-- Phần menu thức uống -->
+
+        <div class="p-6">
+
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-yellow-400 pb-2 flex items-center">
+
+                <span class="mr-2 text-3xl">☕</span> Thức uống giải khát
+
+            </h2>
+
+            <ul class="space-y-3">
+
+                <li class="flex justify-between items-center py-2 px-3 bg-yellow-50 rounded-xl shadow-sm">
+
+                    <span class="text-lg font-medium text-gray-700">Cafe Sữa</span>
+
+                    <span class="text-lg font-semibold text-yellow-700" data-price="15000">15.000 VNĐ</span>
+
+                </li>
+
+                <li class="flex justify-between items-center py-2 px-3 bg-yellow-50 rounded-xl shadow-sm">
+
+                    <span class="text-lg font-medium text-gray-700">Cafe Đen Đá</span>
+
+                    <span class="text-lg font-semibold text-yellow-700" data-price="12000">12.000 VNĐ</span>
+
+                </li>
+
+                <li class="flex justify-between items-center py-2 px-3 bg-yellow-50 rounded-xl shadow-sm">
+
+                    <span class="text-lg font-medium text-gray-700">Trà Chanh</span>
+
+                    <span class="text-lg font-semibold text-yellow-700" data-price="12000">12.000 VNĐ</span>
+
+                </li>
+
+                <li class="flex justify-between items-center py-2 px-3 bg-yellow-50 rounded-xl shadow-sm">
+
+                    <span class="text-lg font-medium text-gray-700">Trà Tắc</span>
+
+                    <span class="text-lg font-semibold text-yellow-700" data-price="10000">10.000 VNĐ</span>
+
+                </li>
+
+                <li class="flex justify-between items-center py-2 px-3 bg-yellow-50 rounded-xl shadow-sm">
+
+                    <span class="text-lg font-medium text-gray-700">Sữa Bắp Hạt Điều</span>
+
+                    <span class="text-lg font-semibold text-yellow-700" data-price="12000">12.000 VNĐ</span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Phần menu ăn vặt -->
+
+        <div class="p-6 pt-0">
+
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-yellow-400 pb-2 flex items-center">
+
+                <span class="mr-2 text-3xl">🥨</span> Ăn vặt
+
+            </h2>
+
+            <ul class="space-y-3">
+
+                <li class="flex justify-between items-center py-2 px-3 bg-yellow-50 rounded-xl shadow-sm">
+
+                    <span class="text-lg font-medium text-gray-700">Bánh tráng các loại</span>
+
+                    <span class="text-lg font-semibold text-yellow-700" data-price="10000">Giá theo loại (VD: 10.000 VNĐ)</span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Phần Chọn món -->
+
+        <div class="p-6 pt-0">
+
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-yellow-400 pb-2 flex items-center">
+
+                <span class="mr-2 text-3xl">➕</span> Chọn món
+
+            </h2>
+
+            <div id="custom-combo-options" class="space-y-3 mb-4">
+
+                <!-- Các checkbox và input số lượng sẽ được thêm vào đây bằng JavaScript -->
+
+            </div>
+
+            <div class="mt-4 p-4 bg-yellow-50 rounded-xl shadow-inner text-gray-700 text-sm italic">
+
+                <p class="font-bold text-base mb-2">Các món đã chọn:</p>
+
+                <ul id="selected-items-list" class="list-disc list-inside space-y-1">
+
+                    <!-- Các món đã chọn sẽ hiển thị ở đây -->
+
+                    <li>Chưa có món nào được chọn.</li>
+
+                </ul>
+
+                <p class="font-bold text-base mt-2">Tổng cộng: <span id="total-price" class="text-yellow-700">0 VNĐ</span></p>
+
+            </div>
+
+            <button id="clear-selection-btn" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-xl focus:outline-none focus:shadow-outline transition duration-300 ease-in-out mt-4">
+
+                Xóa lựa chọn
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Phần thông tin liên hệ và lời cảm ơn -->
+
+        <div class="bg-yellow-600 p-6 text-center text-white rounded-b-3xl">
+
+            <h3 class="text-xl font-bold mb-2">📞 Liên hệ ship tận nơi:</h3>
+
+            <p class="text-2xl font-extrabold tracking-wide">0978276292</p>
+
+            <!-- Nút Ship ngay -->
+
+            <button id="ship-now-btn" class="inline-block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+
+                Ship ngay! 🛵
+
+            </button>
+
+            <p class="mt-4 text-sm italic">Cảm ơn bạn đã ủng hộ Cafe Nhà Xoài!</p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Modal for Ship Now -->
+
+    <div id="ship-now-modal" class="modal-overlay hidden">
+
+        <div class="modal-content">
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Thông tin giao hàng</h3>
+
+            <div class="mb-4">
+
+                <label for="address-input" class="block text-gray-700 text-sm font-bold mb-2">Địa chỉ giao hàng:</label>
+
+                <input type="text" id="address-input" class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-yellow-50" placeholder="Nhập địa chỉ của bạn">
+
+            </div>
+
+            <div class="mb-4">
+
+                <label for="phone-input" class="block text-gray-700 text-sm font-bold mb-2">Số điện thoại của bạn:</label>
+
+                <input type="tel" id="phone-input" class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-yellow-50" placeholder="Nhập số điện thoại của bạn">
+
+            </div>
+
+            <div class="mb-4 p-3 bg-yellow-50 rounded-xl shadow-inner">
+
+                <p class="font-bold text-base mb-2">Đơn hàng của bạn:</p>
+
+                <ul id="order-summary-list" class="list-disc list-inside space-y-1 text-sm text-gray-700">
+
+                    <li>Chưa có món nào được chọn.</li>
+
+                </ul>
+
+                <p class="font-bold text-base mt-2">Tổng tiền: <span id="order-summary-total" class="text-yellow-700">0 VNĐ</span></p>
+
+            </div>
+
+            <div class="flex justify-between space-x-2">
+
+                <button id="send-order-btn" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline transition duration-300 ease-in-out">
+
+                    Gửi đơn hàng qua Zalo
+
+                </button>
+
+                <button id="close-modal-btn" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline transition duration-300 ease-in-out">
+
+                    Đóng
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const menuItemsData = [
+
+                { name: "Cafe Sữa", price: 15000 },
+
+                { name: "Cafe Đen Đá", price: 12000 },
+
+                { name: "Trà Chanh", price: 12000 },
+
+                { name: "Trà Tắc", price: 10000 },
+
+                { name: "Sữa Bắp Hạt Điều", price: 12000 },
+
+                { name: "Bánh tráng các loại", price: 10000 } // Giá mặc định cho bánh tráng
+
+            ];
+
+
+
+            const customComboOptionsDiv = document.getElementById('custom-combo-options');
+
+            const selectedItemsList = document.getElementById('selected-items-list');
+
+            const totalPriceSpan = document.getElementById('total-price');
+
+            const clearSelectionBtn = document.getElementById('clear-selection-btn');
+
+
+
+            // Modal elements
+
+            const shipNowBtn = document.getElementById('ship-now-btn');
+
+            const shipNowModal = document.getElementById('ship-now-modal');
+
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            const addressInput = document.getElementById('address-input');
+
+            const phoneInput = document.getElementById('phone-input');
+
+            const orderSummaryList = document.getElementById('order-summary-list');
+
+            const orderSummaryTotal = document.getElementById('order-summary-total');
+
+            const sendOrderBtn = document.getElementById('send-order-btn');
+
+
+
+            const shopPhoneNumber = '0978276292'; // Số điện thoại của quán để gửi Zalo
+
+
+
+            // Render checkboxes and quantity inputs for custom combo
+
+            menuItemsData.forEach(item => {
+
+                const div = document.createElement('div');
+
+                div.className = 'flex items-center justify-between py-2 px-3 bg-yellow-50 rounded-xl shadow-sm';
+
+                div.innerHTML = `
+
+                    <div class="flex items-center">
+
+                        <input type="checkbox" id="item-${item.name.replace(/\s/g, '-')}" name="combo-item" value="${item.name}" data-price="${item.price}" class="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded">
+
+                        <label for="item-${item.name.replace(/\s/g, '-')}" class="ml-2 text-gray-700 text-lg font-medium">${item.name}</label>
+
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+
+                        <input type="number" id="qty-${item.name.replace(/\s/g, '-')}" class="w-16 p-1 border border-gray-300 rounded-md text-center text-gray-700" value="0" min="0">
+
+                        <span class="text-lg font-semibold text-yellow-700">${item.price.toLocaleString('vi-VN')} VNĐ</span>
+
+                    </div>
+
+                `;
+
+                customComboOptionsDiv.appendChild(div);
+
+            });
+
+
+
+            // Function to update selected items and total price
+
+            function updateCustomCombo() {
+
+                let total = 0;
+
+                selectedItemsList.innerHTML = ''; // Clear previous list
+
+                let itemsSelectedCount = 0;
+
+                const currentOrderItems = []; // To store items for modal summary
+
+
+
+                menuItemsData.forEach(item => {
+
+                    const checkbox = document.getElementById(`item-${item.name.replace(/\s/g, '-')}`);
+
+                    const quantityInput = document.getElementById(`qty-${item.name.replace(/\s/g, '-')}`);
+
+
+
+                    if (checkbox.checked) {
+
+                        const quantity = parseInt(quantityInput.value);
+
+                        if (quantity > 0) {
+
+                            const itemTotal = item.price * quantity;
+
+                            total += itemTotal;
+
+
+
+                            const li = document.createElement('li');
+
+                            li.textContent = `${item.name} x ${quantity} (${itemTotal.toLocaleString('vi-VN')} VNĐ)`;
+
+                            selectedItemsList.appendChild(li);
+
+                            currentOrderItems.push({ name: item.name, quantity: quantity, total: itemTotal });
+
+                            itemsSelectedCount++;
+
+                        } else {
+
+                            // If checkbox is checked but quantity is 0, uncheck it
+
+                            checkbox.checked = false;
+
+                        }
+
+                    } else {
+
+                        // If checkbox is unchecked, ensure quantity is 0
+
+                        quantityInput.value = 0;
+
+                    }
+
+                });
+
+
+
+                if (itemsSelectedCount === 0) {
+
+                    selectedItemsList.innerHTML = '<li>Chưa có món nào được chọn.</li>';
+
+                }
+
+                totalPriceSpan.textContent = `${total.toLocaleString('vi-VN')} VNĐ`;
+
+
+
+                // Update modal summary
+
+                orderSummaryList.innerHTML = '';
+
+                if (currentOrderItems.length === 0) {
+
+                    orderSummaryList.innerHTML = '<li>Chưa có món nào được chọn.</li>';
+
+                } else {
+
+                    currentOrderItems.forEach(item => {
+
+                        const li = document.createElement('li');
+
+                        li.textContent = `${item.name} x ${item.quantity} (${item.total.toLocaleString('vi-VN')} VNĐ)`;
+
+                        orderSummaryList.appendChild(li);
+
+                    });
+
+                }
+
+                orderSummaryTotal.textContent = `${total.toLocaleString('vi-VN')} VNĐ`;
+
+            }
+
+
+
+            // Add event listeners to all checkboxes and quantity inputs
+
+            menuItemsData.forEach(item => {
+
+                const checkbox = document.getElementById(`item-${item.name.replace(/\s/g, '-')}`);
+
+                const quantityInput = document.getElementById(`qty-${item.name.replace(/\s/g, '-')}`);
+
+
+
+                checkbox.addEventListener('change', () => {
+
+                    if (checkbox.checked && parseInt(quantityInput.value) === 0) {
+
+                        quantityInput.value = 1;
+
+                    } else if (!checkbox.checked) {
+
+                        quantityInput.value = 0;
+
+                    }
+
+                    updateCustomCombo();
+
+                });
+
+
+
+                quantityInput.addEventListener('change', () => {
+
+                    if (parseInt(quantityInput.value) < 0) {
+
+                        quantityInput.value = 0;
+
+                    }
+
+                    if (parseInt(quantityInput.value) > 0) {
+
+                        checkbox.checked = true;
+
+                    } else {
+
+                        checkbox.checked = false;
+
+                    }
+
+                    updateCustomCombo();
+
+                });
+
+
+
+                quantityInput.addEventListener('input', () => {
+
+                    if (parseInt(quantityInput.value) < 0) {
+
+                        quantityInput.value = 0;
+
+                    }
+
+                    if (parseInt(quantityInput.value) > 0) {
+
+                        checkbox.checked = true;
+
+                    } else {
+
+                        checkbox.checked = false;
+
+                    }
+
+                    updateCustomCombo();
+
+                });
+
+            });
+
+
+
+            // Event listener for clear selection button
+
+            clearSelectionBtn.addEventListener('click', () => {
+
+                document.querySelectorAll('input[name="combo-item"]').forEach(checkbox => {
+
+                    checkbox.checked = false;
+
+                    const quantityInput = document.getElementById(`qty-${checkbox.value.replace(/\s/g, '-')}`);
+
+                    if (quantityInput) {
+
+                        quantityInput.value = 0;
+
+                    }
+
+                });
+
+                updateCustomCombo(); // Update display after clearing
+
+            });
+
+
+
+            // Event listener for Ship Now button (to open modal)
+
+            shipNowBtn.addEventListener('click', () => {
+
+                shipNowModal.classList.remove('hidden');
+
+                updateCustomCombo(); // Ensure summary in modal is up-to-date
+
+            });
+
+
+
+            // Event listener for Close Modal button
+
+            closeModalBtn.addEventListener('click', () => {
+
+                shipNowModal.classList.add('hidden');
+
+            });
+
+
+
+            // Event listener for Send Order button (in modal)
+
+            sendOrderBtn.addEventListener('click', () => {
+
+                const address = addressInput.value.trim();
+
+                const customerPhone = phoneInput.value.trim();
+
+                const selectedItems = [];
+
+                let totalOrderPrice = 0;
+
+
+
+                menuItemsData.forEach(item => {
+
+                    const checkbox = document.getElementById(`item-${item.name.replace(/\s/g, '-')}`);
+
+                    const quantityInput = document.getElementById(`qty-${item.name.replace(/\s/g, '-')}`);
+
+                    if (checkbox.checked && parseInt(quantityInput.value) > 0) {
+
+                        const quantity = parseInt(quantityInput.value);
+
+                        const itemTotal = item.price * quantity;
+
+                        selectedItems.push(`${item.name} x ${quantity} (${itemTotal.toLocaleString('vi-VN')} VNĐ)`);
+
+                        totalOrderPrice += itemTotal;
+
+                    }
+
+                });
+
+
+
+                if (!address || !customerPhone) {
+
+                    // Using a custom message box instead of alert
+
+                    alert('Vui lòng nhập đầy đủ địa chỉ và số điện thoại của bạn!');
+
+                    return;
+
+                }
+
+                if (selectedItems.length === 0) {
+
+                    // Using a custom message box instead of alert
+
+                    alert('Vui lòng chọn ít nhất một món để đặt hàng!');
+
+                    return;
+
+                }
+
+
+
+                let orderMessage = `ĐƠN HÀNG MỚI TỪ MENU NHÀ XOÀI:\n\n`;
+
+                orderMessage += `Các món đã chọn:\n`;
+
+                selectedItems.forEach(item => {
+
+                    orderMessage += `- ${item}\n`;
+
+                });
+
+                orderMessage += `\nTổng tiền: ${totalOrderPrice.toLocaleString('vi-VN')} VNĐ\n`;
+
+                orderMessage += `Địa chỉ giao hàng: ${address}\n`;
+
+                orderMessage += `Số điện thoại khách: ${customerPhone}\n\n`;
+
+                orderMessage += `Vui lòng xác nhận đơn hàng!`;
+
+
+
+                // Encode the message for URL
+
+                const encodedMessage = encodeURIComponent(orderMessage);
+
+
+
+                // Zalo deep link (this will attempt to open Zalo app)
+
+                // Note: The success of Zalo deep links can vary depending on device and Zalo app version.
+
+                const zaloUrl = `https://zalo.me/${shopPhoneNumber}?text=${encodedMessage}`;
+
+                
+
+                // Open Zalo link in a new tab/window
+
+                window.open(zaloUrl, '_blank');
+
+
+
+                // Optionally clear selection and close modal after sending
+
+                clearSelectionBtn.click(); // Simulate click to clear selection
+
+                shipNowModal.classList.add('hidden');
+
+            });
+
+
+
+            // Initial update
+
+            updateCustomCombo();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
